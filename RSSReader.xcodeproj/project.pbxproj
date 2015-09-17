@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		F74A05931BAAEE9E00CC0E9F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F74A05921BAAEE9E00CC0E9F /* main.m */; };
 		F74A05961BAAEE9E00CC0E9F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F74A05951BAAEE9E00CC0E9F /* AppDelegate.m */; };
-		F74A05991BAAEE9E00CC0E9F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74A05981BAAEE9E00CC0E9F /* ViewController.m */; };
 		F74A059C1BAAEE9E00CC0E9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F74A059A1BAAEE9E00CC0E9F /* Main.storyboard */; };
 		F74A059E1BAAEE9E00CC0E9F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F74A059D1BAAEE9E00CC0E9F /* Images.xcassets */; };
 		F74A05A11BAAEE9E00CC0E9F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74A059F1BAAEE9E00CC0E9F /* LaunchScreen.xib */; };
 		F74A05AD1BAAEE9E00CC0E9F /* RSSReaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F74A05AC1BAAEE9E00CC0E9F /* RSSReaderTests.m */; };
+		F74A05B81BAAEF3F00CC0E9F /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F74A05B71BAAEF3F00CC0E9F /* XMLParser.m */; };
+		F74A05BC1BAAEF8F00CC0E9F /* ContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74A05BB1BAAEF8F00CC0E9F /* ContainerViewController.m */; };
+		F74A05BF1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74A05BE1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.m */; };
+		F74A05C21BAAF5FF00CC0E9F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74A05C11BAAF5FF00CC0E9F /* NewsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +35,20 @@
 		F74A05921BAAEE9E00CC0E9F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F74A05941BAAEE9E00CC0E9F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F74A05951BAAEE9E00CC0E9F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		F74A05971BAAEE9E00CC0E9F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		F74A05981BAAEE9E00CC0E9F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		F74A059B1BAAEE9E00CC0E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F74A059D1BAAEE9E00CC0E9F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F74A05A01BAAEE9E00CC0E9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F74A05A61BAAEE9E00CC0E9F /* RSSReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSSReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F74A05AB1BAAEE9E00CC0E9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F74A05AC1BAAEE9E00CC0E9F /* RSSReaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSSReaderTests.m; sourceTree = "<group>"; };
+		F74A05B61BAAEF3F00CC0E9F /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		F74A05B71BAAEF3F00CC0E9F /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		F74A05BA1BAAEF8F00CC0E9F /* ContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContainerViewController.h; sourceTree = "<group>"; };
+		F74A05BB1BAAEF8F00CC0E9F /* ContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContainerViewController.m; sourceTree = "<group>"; };
+		F74A05BD1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTopicsTableViewController.h; sourceTree = "<group>"; };
+		F74A05BE1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTopicsTableViewController.m; sourceTree = "<group>"; };
+		F74A05C01BAAF5FF00CC0E9F /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		F74A05C11BAAF5FF00CC0E9F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,14 +90,15 @@
 		F74A058F1BAAEE9E00CC0E9F /* RSSReader */ = {
 			isa = PBXGroup;
 			children = (
+				F74A05B91BAAEF7300CC0E9F /* Views */,
 				F74A05941BAAEE9E00CC0E9F /* AppDelegate.h */,
 				F74A05951BAAEE9E00CC0E9F /* AppDelegate.m */,
-				F74A05971BAAEE9E00CC0E9F /* ViewController.h */,
-				F74A05981BAAEE9E00CC0E9F /* ViewController.m */,
 				F74A059A1BAAEE9E00CC0E9F /* Main.storyboard */,
 				F74A059D1BAAEE9E00CC0E9F /* Images.xcassets */,
 				F74A059F1BAAEE9E00CC0E9F /* LaunchScreen.xib */,
 				F74A05901BAAEE9E00CC0E9F /* Supporting Files */,
+				F74A05B61BAAEF3F00CC0E9F /* XMLParser.h */,
+				F74A05B71BAAEF3F00CC0E9F /* XMLParser.m */,
 			);
 			path = RSSReader;
 			sourceTree = "<group>";
@@ -117,6 +127,19 @@
 				F74A05AB1BAAEE9E00CC0E9F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F74A05B91BAAEF7300CC0E9F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F74A05BA1BAAEF8F00CC0E9F /* ContainerViewController.h */,
+				F74A05BB1BAAEF8F00CC0E9F /* ContainerViewController.m */,
+				F74A05BD1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.h */,
+				F74A05BE1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.m */,
+				F74A05C01BAAF5FF00CC0E9F /* NewsViewController.h */,
+				F74A05C11BAAF5FF00CC0E9F /* NewsViewController.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,8 +242,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F74A05991BAAEE9E00CC0E9F /* ViewController.m in Sources */,
 				F74A05961BAAEE9E00CC0E9F /* AppDelegate.m in Sources */,
+				F74A05B81BAAEF3F00CC0E9F /* XMLParser.m in Sources */,
+				F74A05BF1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.m in Sources */,
+				F74A05C21BAAF5FF00CC0E9F /* NewsViewController.m in Sources */,
+				F74A05BC1BAAEF8F00CC0E9F /* ContainerViewController.m in Sources */,
 				F74A05931BAAEE9E00CC0E9F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

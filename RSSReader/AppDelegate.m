@@ -2,11 +2,12 @@
 //  AppDelegate.m
 //  RSSReader
 //
-//  Created by Felix Hedlund on 17/09/2015.
+//  Created by Felix Hedlund on 16/09/2015.
 //  Copyright (c) 2015 FelixHedlund. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "ContainerViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,15 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    _splitviewController = [[UIStoryboard storyboardWithName:@"Main" bundle: nil]        instantiateViewControllerWithIdentifier:@"idSplitViewController"];
+    _splitviewController.delegate = self;
+    _splitviewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
+    
+    _containerViewController = [[ContainerViewController alloc] init];
+    [_containerViewController setEmbeddedViewController:_splitviewController];
+    
+    
     return YES;
 }
 
