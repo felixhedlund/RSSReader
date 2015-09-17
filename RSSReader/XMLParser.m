@@ -18,7 +18,7 @@
     self = [super init];
     if (self) {
         _arrParsedData = [[NSMutableArray alloc] init];
-        _currentDataDictionary = [[NSDictionary alloc] init];
+        _currentDataDictionary = [[NSMutableDictionary alloc] init];
         _currentElement = @"";
         _foundCharacters = @"";
         _linksArray = [[NSMutableArray alloc] init];

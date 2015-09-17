@@ -36,7 +36,7 @@
         _viewController = splitViewController;
         [self addChildViewController:_viewController];
         [self.view addSubview:_viewController.view];
-        [_viewController willMoveToParentViewController:self];
+        [_viewController didMoveToParentViewController:self];
         [self setOverrideTraitCollection:[UITraitCollection traitCollectionWithHorizontalSizeClass:UIUserInterfaceSizeClassRegular] forChildViewController:_viewController];
     }
     

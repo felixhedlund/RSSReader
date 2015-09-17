@@ -8,7 +8,7 @@
         <!--News View Controller-->
         <scene sceneID="Snh-qa-o0k">
             <objects>
-                <viewController id="wcD-R0-NHi" customClass="NewsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="idNewsViewController" id="wcD-R0-NHi" customClass="NewsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uaq-NP-Ay9"/>
                         <viewControllerLayoutGuide type="bottom" id="Q13-tl-fOo"/>
@@ -41,7 +41,7 @@
         <!--Root View Controller-->
         <scene sceneID="57S-RY-gbp">
             <objects>
-                <tableViewController clearsSelectionOnViewWillAppear="NO" id="BMH-fo-ex2" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="BMH-fo-ex2" customClass="NewsTopicsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="705-JH-jVm">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

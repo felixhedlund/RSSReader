@@ -33,6 +33,11 @@
      */
 }
 
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self showWebContent];
+}
+
 - (void) showWebContent{
     if (_newsURL != nil) {
         NSURLRequest* request = [[NSURLRequest alloc] initWithURL:_newsURL];

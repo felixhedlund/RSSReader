@@ -26,7 +26,7 @@
     _containerViewController = [[ContainerViewController alloc] init];
     [_containerViewController setEmbeddedViewController:_splitviewController];
     
-    
+    _window.rootViewController = _containerViewController;
     return YES;
 }
 

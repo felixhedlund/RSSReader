@@ -15,7 +15,7 @@
 @interface XMLParser : NSObject <NSXMLParserDelegate>
 
 @property NSMutableArray* arrParsedData;
-@property NSDictionary* currentDataDictionary;
+@property NSMutableDictionary* currentDataDictionary;
 @property NSString* currentElement;
 @property NSString* foundCharacters;
 @property NSMutableArray* linksArray;

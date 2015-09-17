@@ -60,6 +60,7 @@
 - (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary* dictionary = [_xmlParser.arrParsedData objectAtIndex:indexPath.row];
     NSString* newsLink = [dictionary objectForKey:@"link"];
+    NSLog(@"%@", newsLink);
     NewsViewController* newsViewController = [[UIStoryboard storyboardWithName:@"Main" bundle: nil]        instantiateViewControllerWithIdentifier:@"idNewsViewController"];
     newsViewController.newsURL = [[NSURL alloc] initWithString:newsLink];
     newsViewController.newsDescription = [dictionary objectForKey:@"description"];
