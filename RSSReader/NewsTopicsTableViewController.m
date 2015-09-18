@@ -27,6 +27,11 @@
 
 - (void) parsingWasFinished{
     [_xmlParser.arrParsedData removeObjectAtIndex:0];
+//    for (NSMutableDictionary* dictionary in _xmlParser.arrParsedData) {
+//        NSLog([dictionary objectForKey:@"title"]);
+//        NSLog([dictionary objectForKey:@"link"]);
+//    }
+    
     [self.tableView reloadData];
 }
 
@@ -57,7 +62,7 @@
     return 80;
 }
 
-- (void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary* dictionary = [_xmlParser.arrParsedData objectAtIndex:indexPath.row];
     NSString* newsLink = [dictionary objectForKey:@"link"];
     //NSLog(@"%@", newsLink);

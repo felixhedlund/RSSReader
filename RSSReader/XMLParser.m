@@ -38,7 +38,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    if([_currentElement  isEqual: @"title"] || [_currentElement  isEqual: @"link"]){
+    if([_currentElement  isEqual: @"title"] || [_currentElement  isEqual: @"link"] || [_currentElement  isEqual: @"description"]){
         _foundCharacters = [_foundCharacters stringByAppendingString:string];
         
     }
@@ -56,7 +56,7 @@
         
         
         
-        if ([_currentElement isEqual:@"link"]) {
+        if ([_currentElement isEqual:@"description"]) {
             [_arrParsedData addObject:_currentDataDictionary.copy];
         }
         
