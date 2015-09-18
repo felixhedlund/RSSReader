@@ -16,8 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSURL* url = [[NSURL alloc] initWithString:@"http://www.dn.se/nyheter/m/rss/"];
+    //http://www.dn.se/nyheter/m/rss/
+    NSURL* url = [[NSURL alloc] initWithString:@"http://www.aftonbladet.se/rss.xml"];
     _xmlParser = [[XMLParser alloc] init];
     _xmlParser.delegate = self;
     [_xmlParser startParsingWithContentsOfURL:url];
