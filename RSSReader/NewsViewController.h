@@ -12,7 +12,6 @@
 @interface NewsViewController : UIViewController
 @property (weak) IBOutlet UIWebView* webView;
 @property NSURL* newsURL;
-@property NSString* newsDescription;
 @property id<UIApplicationDelegate> appDelegate;
 @property (weak) IBOutlet UIView* hideContentView;
 @property UIImageView* hideImage;

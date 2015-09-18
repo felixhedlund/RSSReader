@@ -38,8 +38,9 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    if([_currentElement  isEqual: @"title"] || [_currentElement  isEqual: @"link"] || [_currentElement  isEqual: @"pubDate"] || [_currentElement  isEqual: @"description"]){
+    if([_currentElement  isEqual: @"title"] || [_currentElement  isEqual: @"link"]){
         _foundCharacters = [_foundCharacters stringByAppendingString:string];
+        
     }
 }
 
@@ -50,25 +51,22 @@
             [_linksArray addObject:_foundCharacters];
         }
         
-        if ([elementName isEqual:@"description"]) {
-            NSString* descriptionString = _foundCharacters;
-            NSString* aString = @"<br />";
-            if ([descriptionString containsString:aString]) {
-                _foundCharacters = [descriptionString substringFromIndex:[descriptionString rangeOfString:aString].location + 6];
-            }
-        }
         [_currentDataDictionary setValue:_foundCharacters forKey:_currentElement];
         _foundCharacters = @"";
         
-        if ([_currentElement isEqual:@"description"]) {
-            [_arrParsedData addObject:_currentDataDictionary];
+        
+        
+        if ([_currentElement isEqual:@"link"]) {
+            [_arrParsedData addObject:_currentDataDictionary.copy];
         }
         
     }
 }
 
 - (void) parserDidEndDocument:(NSXMLParser *)parser{
+    
     [_delegate parsingWasFinished];
+    
 }
 
 - (void) parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError{

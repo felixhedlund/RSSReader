@@ -38,7 +38,7 @@
             </objects>
             <point key="canvasLocation" x="508" y="649"/>
         </scene>
-        <!--Root View Controller-->
+        <!--News-->
         <scene sceneID="57S-RY-gbp">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="BMH-fo-ex2" customClass="NewsTopicsTableViewController" sceneMemberID="viewController">
@@ -54,7 +54,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BzA-Dj-Fr8">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BzA-Dj-Fr8">
                                             <rect key="frame" x="15" y="0.0" width="570" height="79"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
@@ -70,7 +70,7 @@
                             <outlet property="delegate" destination="BMH-fo-ex2" id="wDt-QK-t0H"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="X1L-2k-s2r"/>
+                    <navigationItem key="navigationItem" title="News" id="X1L-2k-s2r"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zs2-9U-e9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
