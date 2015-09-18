@@ -21,8 +21,7 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    CGFloat viewControllerMaximumPrimaryColumnWidth = self.viewController.maximumPrimaryColumnWidth;
-    self.maximumColumnWidth = &(viewControllerMaximumPrimaryColumnWidth);
+    self.maximumColumnWidth = self.viewController.maximumPrimaryColumnWidth;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +39,15 @@
         [self setOverrideTraitCollection:[UITraitCollection traitCollectionWithHorizontalSizeClass:UIUserInterfaceSizeClassRegular] forChildViewController:_viewController];
     }
     
+}
+
+-(void) hideNewsTopics{
+    
+    [UIView animateWithDuration:0.6 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations: ^{self.viewController.maximumPrimaryColumnWidth = 0;} completion: ^(BOOL finished){}];
+}
+
+-(void) showNewsTopics{
+    [UIView animateWithDuration:0.6 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations: ^{self.viewController.maximumPrimaryColumnWidth = self.maximumColumnWidth;} completion: ^(BOOL finished){}];
 }
 
 @end

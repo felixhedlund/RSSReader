@@ -10,12 +10,10 @@
 #import "XMLParser.h"
 
 @class XMLParser;
-
 @interface NewsTopicsTableViewController : UITableViewController <XMLParserDelegate>
 
 @property XMLParser* xmlParser;
 @property NSArray* urlArray;
-
 //var xmlParser : XMLParser!
 //@IBOutlet weak var slideshowButton: UIButton!
 //var urlArray: NSArray!

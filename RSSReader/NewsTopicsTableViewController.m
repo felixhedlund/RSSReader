@@ -69,6 +69,7 @@
     NewsViewController* newsViewController = [[UIStoryboard storyboardWithName:@"Main" bundle: nil]        instantiateViewControllerWithIdentifier:@"idNewsViewController"];
     newsViewController.newsURL = [[NSURL alloc] initWithString:newsLink];
     [self showDetailViewController:newsViewController sender:self];
+    [newsViewController hideButtonPressed:nil];
 }
 
 /*

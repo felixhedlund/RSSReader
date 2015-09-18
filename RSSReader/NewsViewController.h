@@ -7,16 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 
 @interface NewsViewController : UIViewController
 @property (weak) IBOutlet UIWebView* webView;
 @property NSURL* newsURL;
-@property id<UIApplicationDelegate> appDelegate;
 @property (weak) IBOutlet UIView* hideContentView;
 @property UIImageView* hideImage;
 @property BOOL newsTopicsIsHidden;
 
 - (void) showWebContent;
+- (void) hideButtonPressed:(UIButton *) sender;
 
 @end

@@ -11,8 +11,9 @@
 @interface ContainerViewController : UIViewController
 
 @property UISplitViewController* viewController;
-@property CGFloat* maximumColumnWidth;
+@property CGFloat maximumColumnWidth;
 
 - (void)setEmbeddedViewController:(UISplitViewController*)splitViewController;
-
+-(void) hideNewsTopics;
+-(void) showNewsTopics;
 @end

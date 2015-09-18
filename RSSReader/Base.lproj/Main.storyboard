@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--News View Controller-->
@@ -17,21 +18,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RfU-Xw-81T">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No news selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7x-x7-Uvj">
+                                <rect key="frame" x="232" y="289" width="136" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vda-It-k20">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znh-Hj-cle">
+                                <rect key="frame" x="-18" y="28" width="50" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="YzA-cl-tfl"/>
+                                    <constraint firstAttribute="width" constant="50" id="s4b-Ve-h9U"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RfU-Xw-81T" firstAttribute="bottom" secondItem="Q13-tl-fOo" secondAttribute="top" id="7Mf-BN-nan"/>
-                            <constraint firstItem="RfU-Xw-81T" firstAttribute="leading" secondItem="BCL-G8-tiC" secondAttribute="leading" id="KsU-xi-cxk"/>
-                            <constraint firstItem="RfU-Xw-81T" firstAttribute="top" secondItem="BCL-G8-tiC" secondAttribute="top" id="h0N-fR-dSS"/>
-                            <constraint firstAttribute="trailing" secondItem="RfU-Xw-81T" secondAttribute="trailing" id="hh5-0f-cCa"/>
+                            <constraint firstItem="r7x-x7-Uvj" firstAttribute="centerX" secondItem="BCL-G8-tiC" secondAttribute="centerX" id="5Hz-04-7lg"/>
+                            <constraint firstItem="Vda-It-k20" firstAttribute="leading" secondItem="BCL-G8-tiC" secondAttribute="leading" id="CVL-he-ZJ5"/>
+                            <constraint firstItem="Vda-It-k20" firstAttribute="centerX" secondItem="r7x-x7-Uvj" secondAttribute="centerX" id="Egh-fk-bFe"/>
+                            <constraint firstItem="r7x-x7-Uvj" firstAttribute="centerY" secondItem="BCL-G8-tiC" secondAttribute="centerY" id="NZf-K5-Trx"/>
+                            <constraint firstItem="Vda-It-k20" firstAttribute="bottom" secondItem="Q13-tl-fOo" secondAttribute="top" id="PVD-sM-DXM"/>
+                            <constraint firstItem="znh-Hj-cle" firstAttribute="top" secondItem="uaq-NP-Ay9" secondAttribute="bottom" constant="8" symbolic="YES" id="Rkk-DR-y8z"/>
+                            <constraint firstItem="Vda-It-k20" firstAttribute="centerY" secondItem="r7x-x7-Uvj" secondAttribute="centerY" id="eSR-Rj-Hqa"/>
+                            <constraint firstItem="znh-Hj-cle" firstAttribute="leading" secondItem="BCL-G8-tiC" secondAttribute="leadingMargin" constant="-38" id="haD-H3-JBL"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="webView" destination="RfU-Xw-81T" id="Aid-DT-qBg"/>
+                        <outlet property="hideContentView" destination="znh-Hj-cle" id="gay-NR-U70"/>
+                        <outlet property="webView" destination="Vda-It-k20" id="Rdp-K0-cmy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTN-GS-0WK" userLabel="First Responder" sceneMemberID="firstResponder"/>

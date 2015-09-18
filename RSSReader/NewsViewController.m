@@ -7,6 +7,7 @@
 //
 
 #import "NewsViewController.h"
+#import "AppDelegate.h"
 
 @interface NewsViewController ()
 
@@ -19,7 +20,7 @@
     // Do any additional setup after loading the view.
     _newsTopicsIsHidden = false;
     _webView.hidden = true;
-    _appDelegate = [UIApplication sharedApplication].delegate;
+    [self addHideButton];
     /*
      newsTopicsIsHidden = false
      webView.hidden = true
@@ -36,6 +37,7 @@
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     [self showWebContent];
+    [self.view bringSubviewToFront:_hideContentView];
 }
 
 - (void) showWebContent{
@@ -47,6 +49,56 @@
             _webView.hidden = false;
         }
     }
+}
+
+- (void) addHideButton{
+    CGFloat imageSideSize = _hideContentView.frame.size.width;
+    _hideImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imageSideSize, imageSideSize)];
+    _hideImage.image = [UIImage imageNamed:@"Arrow-left"];
+    [_hideContentView addSubview:_hideImage];
+    
+    UIButton* hideButton = [[UIButton alloc] initWithFrame:_hideImage.frame];
+    [hideButton addTarget:self action:@selector(hideButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_hideContentView addSubview:hideButton];
+    
+    /*
+     hideImage = UIImageView(frame: CGRectMake(0, 0, imageWidth, imageHeight))
+     hideImage.image = UIImage(named: "Arrow-left")
+     hideContentView.addSubview(hideImage)
+     
+     var hideButton = UIButton(frame: hideImage.frame)
+     hideButton.addTarget(self, action: Selector("hideButtonPressed:"), forControlEvents: .TouchUpInside)
+     
+     hideContentView.addSubview(hideButton)
+     
+     self.view.addSubview(hideContentView)
+     */
+}
+
+- (void) hideButtonPressed:(UIButton *) sender {
+    if (_newsTopicsIsHidden) {
+        _newsTopicsIsHidden = false;
+        _hideImage.image = [UIImage imageNamed:@"Arrow-left"];
+        [[(AppDelegate *)[[UIApplication sharedApplication] delegate] self].containerViewController showNewsTopics];
+        
+    }else{
+        _newsTopicsIsHidden = true;
+        _hideImage.image = [UIImage imageNamed:@"Arrow-right"];
+        [[(AppDelegate *)[[UIApplication sharedApplication] delegate] self].containerViewController hideNewsTopics];
+    }
+    
+   /*
+    if(newsTopicsIsHidden!){
+    newsTopicsIsHidden = false
+    hideImage.image = UIImage(named: "Arrow-left")
+    appDelegate.containerViewController.showNewsTopics()
+    }else{
+    newsTopicsIsHidden = true
+    hideImage.image = UIImage(named: "Arrow-right")
+    appDelegate.containerViewController.hideNewsTopics()
+    }
+    */
+    
 }
 
 
