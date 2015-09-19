@@ -22,7 +22,6 @@ static SavedState* sharedState = nil;
     }
     return sharedState;
 }
-
 - (id)init {
     if (self = [super init]) {
         _rssURL = [[NSURL alloc] initWithString:@"http://www.aftonbladet.se/rss.xml"];
@@ -31,7 +30,6 @@ static SavedState* sharedState = nil;
     }
     return self;
 }
-
 - (void) saveState{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setURL:_rssURL forKey:@"rssURL"];

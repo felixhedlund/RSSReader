@@ -24,14 +24,4 @@
 
 - (void)startParsingWithContentsOfURL: (NSURL*)rssURL;
 
-//var arrParsedData = [Dictionary<String, String>]()
-//var currentDataDictionary = Dictionary<String, String>()
-//var currentElement = ""
-//var foundCharacters = ""
-//var linksArray = NSMutableArray()
-//
-//var hasPrinted = 0
-//
-//var delegate : XMLParserDelegate?
-
 @end

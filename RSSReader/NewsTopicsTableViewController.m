@@ -20,7 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //http://www.dn.se/nyheter/m/rss/
     [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"topicsBackground-highlight.png"]]];
     
     [self addBarButton];
@@ -34,23 +33,16 @@
     _xmlParser = [[XMLParser alloc] init];
     _xmlParser.delegate = self;
     [_xmlParser startParsingWithContentsOfURL:url];
-    //self.clearsSelectionOnViewWillAppear = NO;
 
 }
 
 - (void) parsingWasFinished{
     [_xmlParser.arrParsedData removeObjectAtIndex:0];
-//    for (NSMutableDictionary* dictionary in _xmlParser.arrParsedData) {
-//        NSLog([dictionary objectForKey:@"title"]);
-//        NSLog([dictionary objectForKey:@"link"]);
-//    }
-    
     [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void) addBarButton{
@@ -70,7 +62,6 @@
     _popController = [[UIStoryboard storyboardWithName:@"Main" bundle: nil]        instantiateViewControllerWithIdentifier:@"idPopoverViewController"];
     _popController.modalPresentationStyle = UIModalPresentationPopover;
     _popController.popoverPresentationController.delegate = self;
-    //[popController.popoverPresentationController]
     [self presentViewController:_popController animated:true completion:nil];
     
     _popController.popoverPresentationController.barButtonItem = _rssButton;
@@ -103,29 +94,16 @@
     return UIModalPresentationNone;
 }
 
-/*
- popoverViewController?.popoverPresentationController?.barButtonItem = pubDateButtonItem
- popoverViewController?.popoverPresentationController?.permittedArrowDirections = .Any
- popoverViewController?.preferredContentSize = CGSizeMake(200.0, 80.0)
- 
- popoverViewController?.lblMessage.text = "Publish Date:\n\(publishDate)"
- */
-
-//- (IBAction)returnRSSImageToInitialState:(id)sender{
-//    _rssImage.image = [UIImage imageNamed:@"rss"];
-//}
-
-
-//@IBAction func showPublishDate(sender: AnyObject) {
-//    var popoverViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("idPopoverViewController") as? PopoverViewController
-//    
-//    popoverViewController?.modalPresentationStyle = UIModalPresentationStyle.Popover
-//    
-//    popoverViewController?.popoverPresentationController?.delegate = self
-//    
-//    self.presentViewController(popoverViewController!, animated: true, completion: nil)
-//    
-//}
+- (void) returnToOriginalURL{
+    SavedState* savedState = [SavedState sharedInstance];
+    savedState.rssURL = [[NSURL alloc] initWithString:@"http://www.aftonbladet.se/rss.xml"];
+    [savedState saveState];
+    
+    NSURL* url = savedState.rssURL;
+    _xmlParser = [[XMLParser alloc] init];
+    _xmlParser.delegate = self;
+    [_xmlParser startParsingWithContentsOfURL:url];
+}
 
 #pragma mark - Table view data source
 
@@ -154,71 +132,18 @@
 }
 
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSDictionary* dictionary = [_xmlParser.arrParsedData objectAtIndex:indexPath.row];
-    NSString* newsLink = [dictionary objectForKey:@"link"];
-    //NSLog(@"%@", newsLink);
-    NewsViewController* newsViewController = [[UIStoryboard storyboardWithName:@"Main" bundle: nil]        instantiateViewControllerWithIdentifier:@"idNewsViewController"];
-    newsViewController.newsURL = [[NSURL alloc] initWithString:newsLink];
-    [self showDetailViewController:newsViewController sender:self];
-    [newsViewController hideButtonPressed:nil];
+    if (_xmlParser.arrParsedData.count < 1) {
+        //Easy fix for an URL that is a valid link but invalid RSS-feed, XML parser does not call "parserDidEndDocument" for these links.
+        [self returnToOriginalURL];
+    }else{
+        NSDictionary* dictionary = [_xmlParser.arrParsedData objectAtIndex:indexPath.row];
+        NSString* newsLink = [dictionary objectForKey:@"link"];
+        NewsViewController* newsViewController = [[UIStoryboard storyboardWithName:@"Main" bundle: nil]        instantiateViewControllerWithIdentifier:@"idNewsViewController"];
+        newsViewController.newsURL = [[NSURL alloc] initWithString:newsLink];
+        [self showDetailViewController:newsViewController sender:self];
+        [newsViewController hideButtonPressed:nil];
+    }
+    
 }
-
-/*
- override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
- let dictionary = xmlParser.arrParsedData[indexPath.row] as Dictionary<String, String>
- let newsLink = dictionary["link"]
- 
- let newsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("idNewsViewController") as! NewsViewController
- 
- newsViewController.newsURL = NSURL(string: newsLink!)
- newsViewController.newsDescription = dictionary["description"]
- showDetailViewController(newsViewController, sender: self)
- 
- }
- */
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

@@ -47,10 +47,7 @@
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
     if ([_foundCharacters length] > 0) {
         if ([elementName isEqual:@"link"]) {
-            //NSLog(_foundCharacters);
             _foundCharacters = [_foundCharacters stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            
-            //_foundCharacters = [_foundCharacters substringFromIndex:7];
             [_linksArray addObject:_foundCharacters];
         }
         
