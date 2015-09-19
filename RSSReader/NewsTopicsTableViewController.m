@@ -8,6 +8,8 @@
 
 #import "NewsTopicsTableViewController.h"
 #import "NewsViewController.h"
+#import "SavedState.h"
+@class SavedState;
 @interface NewsTopicsTableViewController ()
 
 @end
@@ -17,7 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //http://www.dn.se/nyheter/m/rss/
-    NSURL* url = [[NSURL alloc] initWithString:@"http://www.aftonbladet.se/rss.xml"];
+    
+    SavedState* savedState = [SavedState sharedInstance];
+    NSURL* url;
+    if (!savedState.rssURL) {
+        savedState.rssURL = [[NSURL alloc] initWithString:@"http://www.aftonbladet.se/rss.xml"];
+        [savedState saveState];
+    }
+    url = savedState.rssURL;
     _xmlParser = [[XMLParser alloc] init];
     _xmlParser.delegate = self;
     [_xmlParser startParsingWithContentsOfURL:url];

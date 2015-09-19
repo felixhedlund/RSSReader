@@ -38,7 +38,7 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    if([_currentElement  isEqual: @"title"] || [_currentElement  isEqual: @"link"] || [_currentElement  isEqual: @"description"]){
+    if([_currentElement  isEqual: @"title"] || [_currentElement  isEqual: @"link"] || [_currentElement  isEqual: @"pubDate"]){
         _foundCharacters = [_foundCharacters stringByAppendingString:string];
         
     }
@@ -49,7 +49,7 @@
         if ([elementName isEqual:@"link"]) {
             //NSLog(_foundCharacters);
             _foundCharacters = [_foundCharacters stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-            NSLog(_foundCharacters);
+            
             //_foundCharacters = [_foundCharacters substringFromIndex:7];
             [_linksArray addObject:_foundCharacters];
         }
@@ -59,7 +59,7 @@
         
         
         
-        if ([_currentElement isEqual:@"description"]) {
+        if ([_currentElement isEqual:@"pubDate"]) {
             [_arrParsedData addObject:_currentDataDictionary.copy];
         }
         
