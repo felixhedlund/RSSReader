@@ -58,6 +58,41 @@
             </objects>
             <point key="canvasLocation" x="508" y="649"/>
         </scene>
+        <!--Popover View Controller-->
+        <scene sceneID="nVv-3N-rWi">
+            <objects>
+                <viewController storyboardIdentifier="idPopoverViewController" id="clD-9w-XS5" customClass="PopoverViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sLS-rf-FnY"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZvH-wL-k3X"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pSM-xv-kks">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1b4-j8-4bo">
+                                <rect key="frame" x="255" y="285" width="90" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="wvX-Sx-9ge"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1b4-j8-4bo" firstAttribute="centerY" secondItem="pSM-xv-kks" secondAttribute="centerY" id="SqD-Dm-CUq"/>
+                            <constraint firstItem="1b4-j8-4bo" firstAttribute="centerX" secondItem="pSM-xv-kks" secondAttribute="centerX" id="YUK-44-54O"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="rssTextField" destination="1b4-j8-4bo" id="3LP-7u-gDv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bjp-Vq-CBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1324" y="-698"/>
+        </scene>
         <!--News Topics Table View Controller-->
         <scene sceneID="57S-RY-gbp">
             <objects>
@@ -92,28 +127,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="X1L-2k-s2r">
                         <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" id="1eH-76-ERY">
-                            <rect key="frame" x="180" y="6" width="240" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L8T-IG-siS">
-                                    <rect key="frame" x="103" y="0.0" width="35" height="33"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="35" id="ezy-CE-Fta"/>
-                                    </constraints>
-                                </imageView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="L8T-IG-siS" firstAttribute="top" secondItem="1eH-76-ERY" secondAttribute="top" id="3bV-2z-YDO"/>
-                                <constraint firstItem="L8T-IG-siS" firstAttribute="centerY" secondItem="1eH-76-ERY" secondAttribute="centerY" id="7aJ-oZ-jtn"/>
-                                <constraint firstItem="L8T-IG-siS" firstAttribute="centerX" secondItem="1eH-76-ERY" secondAttribute="centerX" id="9ZZ-0y-fLr"/>
-                            </constraints>
-                        </view>
                     </navigationItem>
-                    <connections>
-                        <outlet property="rssImage" destination="L8T-IG-siS" id="IGP-zM-qOw"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zs2-9U-e9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

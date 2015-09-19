@@ -9,7 +9,9 @@
 #import "NewsTopicsTableViewController.h"
 #import "NewsViewController.h"
 #import "SavedState.h"
+#import "PopoverViewController.h"
 @class SavedState;
+@class PopoverViewController;
 @interface NewsTopicsTableViewController ()
 
 @end
@@ -18,9 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _rssImage.image = [UIImage imageNamed:@"rss"];
     //http://www.dn.se/nyheter/m/rss/
     
+    [self addBarButton];
     SavedState* savedState = [SavedState sharedInstance];
     NSURL* url;
     if (!savedState.rssURL) {
@@ -49,6 +51,61 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void) addBarButton{
+    CGRect frameimg = CGRectMake(0, 0, 35, 35);
+    UIButton *barButton = [[UIButton alloc] initWithFrame:frameimg];
+    [barButton setBackgroundImage:[UIImage imageNamed:@"rss"] forState:UIControlStateNormal];
+    [barButton setBackgroundImage:[UIImage imageNamed:@"rss-dark"] forState:UIControlStateHighlighted];
+    [barButton addTarget:self action:@selector(showRSSPopover:)
+        forControlEvents:UIControlEventTouchUpInside];
+    [barButton setShowsTouchWhenHighlighted:YES];
+    
+    _rssButton =[[UIBarButtonItem alloc] initWithCustomView:barButton];
+    self.navigationItem.leftBarButtonItem=_rssButton;
+}
+
+- (IBAction)showRSSPopover:(id)sender{
+    PopoverViewController* popController = [[UIStoryboard storyboardWithName:@"Main" bundle: nil]        instantiateViewControllerWithIdentifier:@"idPopoverViewController"];
+    popController.modalPresentationStyle = UIModalPresentationPopover;
+    popController.popoverPresentationController.delegate = self;
+    //[popController.popoverPresentationController]
+    [self presentViewController:popController animated:true completion:nil];
+    
+    popController.popoverPresentationController.barButtonItem = _rssButton;
+    popController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    popController.preferredContentSize = CGSizeMake(200, 80);
+    popController.rssTextField.placeholder = [SavedState sharedInstance].rssURL.absoluteString;
+    
+}
+
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller{
+    return UIModalPresentationNone;
+}
+
+/*
+ popoverViewController?.popoverPresentationController?.barButtonItem = pubDateButtonItem
+ popoverViewController?.popoverPresentationController?.permittedArrowDirections = .Any
+ popoverViewController?.preferredContentSize = CGSizeMake(200.0, 80.0)
+ 
+ popoverViewController?.lblMessage.text = "Publish Date:\n\(publishDate)"
+ */
+
+//- (IBAction)returnRSSImageToInitialState:(id)sender{
+//    _rssImage.image = [UIImage imageNamed:@"rss"];
+//}
+
+
+//@IBAction func showPublishDate(sender: AnyObject) {
+//    var popoverViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("idPopoverViewController") as? PopoverViewController
+//    
+//    popoverViewController?.modalPresentationStyle = UIModalPresentationStyle.Popover
+//    
+//    popoverViewController?.popoverPresentationController?.delegate = self
+//    
+//    self.presentViewController(popoverViewController!, animated: true, completion: nil)
+//    
+//}
 
 #pragma mark - Table view data source
 

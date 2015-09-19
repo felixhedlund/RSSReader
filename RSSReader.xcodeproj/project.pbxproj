@@ -18,6 +18,7 @@
 		F74A05BF1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74A05BE1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.m */; };
 		F74A05C21BAAF5FF00CC0E9F /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F74A05C11BAAF5FF00CC0E9F /* NewsViewController.m */; };
 		F7E459571BAC9EE8007506D5 /* SavedState.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E459561BAC9EE7007506D5 /* SavedState.m */; settings = {ASSET_TAGS = (); }; };
+		F7E4595E1BAD8AA7007506D5 /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E4595D1BAD8AA7007506D5 /* PopoverViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		F74A05C11BAAF5FF00CC0E9F /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		F7E459561BAC9EE7007506D5 /* SavedState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedState.m; sourceTree = "<group>"; };
 		F7E459581BAC9F47007506D5 /* SavedState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavedState.h; sourceTree = "<group>"; };
+		F7E4595C1BAD8AA7007506D5 /* PopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
+		F7E4595D1BAD8AA7007506D5 /* PopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				F74A05BE1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.m */,
 				F74A05C01BAAF5FF00CC0E9F /* NewsViewController.h */,
 				F74A05C11BAAF5FF00CC0E9F /* NewsViewController.m */,
+				F7E4595C1BAD8AA7007506D5 /* PopoverViewController.h */,
+				F7E4595D1BAD8AA7007506D5 /* PopoverViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				F74A05B81BAAEF3F00CC0E9F /* XMLParser.m in Sources */,
 				F74A05BF1BAAEFCF00CC0E9F /* NewsTopicsTableViewController.m in Sources */,
 				F74A05C21BAAF5FF00CC0E9F /* NewsViewController.m in Sources */,
+				F7E4595E1BAD8AA7007506D5 /* PopoverViewController.m in Sources */,
 				F7E459571BAC9EE8007506D5 /* SavedState.m in Sources */,
 				F74A05BC1BAAEF8F00CC0E9F /* ContainerViewController.m in Sources */,
 				F74A05931BAAEE9E00CC0E9F /* main.m in Sources */,
