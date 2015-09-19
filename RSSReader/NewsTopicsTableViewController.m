@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _rssImage.image = [UIImage imageNamed:@"rss"];
     //http://www.dn.se/nyheter/m/rss/
     
     SavedState* savedState = [SavedState sharedInstance];

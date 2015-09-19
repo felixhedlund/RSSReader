@@ -21,7 +21,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No news selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7x-x7-Uvj">
                                 <rect key="frame" x="232" y="289" width="136" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vda-It-k20">
@@ -58,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="508" y="649"/>
         </scene>
-        <!--News-->
+        <!--News Topics Table View Controller-->
         <scene sceneID="57S-RY-gbp">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="BMH-fo-ex2" customClass="NewsTopicsTableViewController" sceneMemberID="viewController">
@@ -78,7 +78,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="79"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -90,7 +90,30 @@
                             <outlet property="delegate" destination="BMH-fo-ex2" id="wDt-QK-t0H"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="News" id="X1L-2k-s2r"/>
+                    <navigationItem key="navigationItem" id="X1L-2k-s2r">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="1eH-76-ERY">
+                            <rect key="frame" x="180" y="6" width="240" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L8T-IG-siS">
+                                    <rect key="frame" x="103" y="0.0" width="35" height="33"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="35" id="ezy-CE-Fta"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="L8T-IG-siS" firstAttribute="top" secondItem="1eH-76-ERY" secondAttribute="top" id="3bV-2z-YDO"/>
+                                <constraint firstItem="L8T-IG-siS" firstAttribute="centerY" secondItem="1eH-76-ERY" secondAttribute="centerY" id="7aJ-oZ-jtn"/>
+                                <constraint firstItem="L8T-IG-siS" firstAttribute="centerX" secondItem="1eH-76-ERY" secondAttribute="centerX" id="9ZZ-0y-fLr"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="rssImage" destination="L8T-IG-siS" id="IGP-zM-qOw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zs2-9U-e9p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

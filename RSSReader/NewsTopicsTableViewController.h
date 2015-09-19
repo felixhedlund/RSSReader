@@ -11,7 +11,7 @@
 
 @class XMLParser;
 @interface NewsTopicsTableViewController : UITableViewController <XMLParserDelegate>
-
+@property (weak) IBOutlet UIImageView* rssImage;
 @property XMLParser* xmlParser;
 @property NSArray* urlArray;
 //var xmlParser : XMLParser!
