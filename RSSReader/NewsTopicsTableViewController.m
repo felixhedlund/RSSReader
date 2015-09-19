@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //http://www.dn.se/nyheter/m/rss/
+    [self.navigationController.navigationBar setBarTintColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"topicsBackground-highlight.png"]]];
     
     [self addBarButton];
     SavedState* savedState = [SavedState sharedInstance];
@@ -74,7 +75,7 @@
     
     _popController.popoverPresentationController.barButtonItem = _rssButton;
     _popController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
-    _popController.preferredContentSize = CGSizeMake(270, 80);
+    _popController.preferredContentSize = CGSizeMake(280, 60);
     _popController.rssTextField.placeholder = [SavedState sharedInstance].rssURL.absoluteString;
     _popController.rssTextField.delegate = self;
     
@@ -141,6 +142,10 @@
  
      NSDictionary* currentDictionary = [_xmlParser.arrParsedData objectAtIndex:indexPath.row];
      cell.textLabel.text = [currentDictionary objectForKey:@"title"];
+     [cell setBackgroundColor: [UIColor colorWithPatternImage:[UIImage imageNamed:@"topicsBackground.png"]]];
+     cell.selectedBackgroundView = [UIView new];
+     cell.selectedBackgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"topicsBackground-highlight.png"]];     
+     
      return cell;
  }
 

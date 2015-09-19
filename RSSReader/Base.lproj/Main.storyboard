@@ -29,11 +29,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znh-Hj-cle">
-                                <rect key="frame" x="-18" y="28" width="50" height="50"/>
+                                <rect key="frame" x="4" y="28" width="27" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="YzA-cl-tfl"/>
-                                    <constraint firstAttribute="width" constant="50" id="s4b-Ve-h9U"/>
+                                    <constraint firstAttribute="width" constant="27" id="s4b-Ve-h9U"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -46,7 +46,7 @@
                             <constraint firstItem="Vda-It-k20" firstAttribute="bottom" secondItem="Q13-tl-fOo" secondAttribute="top" id="PVD-sM-DXM"/>
                             <constraint firstItem="znh-Hj-cle" firstAttribute="top" secondItem="uaq-NP-Ay9" secondAttribute="bottom" constant="8" symbolic="YES" id="Rkk-DR-y8z"/>
                             <constraint firstItem="Vda-It-k20" firstAttribute="centerY" secondItem="r7x-x7-Uvj" secondAttribute="centerY" id="eSR-Rj-Hqa"/>
-                            <constraint firstItem="znh-Hj-cle" firstAttribute="leading" secondItem="BCL-G8-tiC" secondAttribute="leadingMargin" constant="-38" id="haD-H3-JBL"/>
+                            <constraint firstItem="znh-Hj-cle" firstAttribute="leading" secondItem="BCL-G8-tiC" secondAttribute="leadingMargin" constant="-16" id="haD-H3-JBL"/>
                         </constraints>
                     </view>
                     <connections>

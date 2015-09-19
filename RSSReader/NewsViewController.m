@@ -52,8 +52,7 @@
 }
 
 - (void) addHideButton{
-    CGFloat imageSideSize = _hideContentView.frame.size.width;
-    _hideImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, imageSideSize, imageSideSize)];
+    _hideImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _hideContentView.frame.size.width, _hideContentView.frame.size.height)];
     _hideImage.image = [UIImage imageNamed:@"Arrow-left"];
     [_hideContentView addSubview:_hideImage];
     
