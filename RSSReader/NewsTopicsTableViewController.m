@@ -66,17 +66,36 @@
 }
 
 - (IBAction)showRSSPopover:(id)sender{
-    PopoverViewController* popController = [[UIStoryboard storyboardWithName:@"Main" bundle: nil]        instantiateViewControllerWithIdentifier:@"idPopoverViewController"];
-    popController.modalPresentationStyle = UIModalPresentationPopover;
-    popController.popoverPresentationController.delegate = self;
+    _popController = [[UIStoryboard storyboardWithName:@"Main" bundle: nil]        instantiateViewControllerWithIdentifier:@"idPopoverViewController"];
+    _popController.modalPresentationStyle = UIModalPresentationPopover;
+    _popController.popoverPresentationController.delegate = self;
     //[popController.popoverPresentationController]
-    [self presentViewController:popController animated:true completion:nil];
+    [self presentViewController:_popController animated:true completion:nil];
     
-    popController.popoverPresentationController.barButtonItem = _rssButton;
-    popController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
-    popController.preferredContentSize = CGSizeMake(200, 80);
-    popController.rssTextField.placeholder = [SavedState sharedInstance].rssURL.absoluteString;
+    _popController.popoverPresentationController.barButtonItem = _rssButton;
+    _popController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    _popController.preferredContentSize = CGSizeMake(270, 80);
+    _popController.rssTextField.placeholder = [SavedState sharedInstance].rssURL.absoluteString;
+    _popController.rssTextField.delegate = self;
     
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    NSURL* url = [NSURL URLWithString:textField.text];
+    if(url && url.scheme && url.host){
+        [_popController dismissViewControllerAnimated:true completion:nil];
+        SavedState* savedState = [SavedState sharedInstance];
+        savedState.rssURL = url;
+        [savedState saveState];
+        
+        _xmlParser = [[XMLParser alloc] init];
+        _xmlParser.delegate = self;
+        [_xmlParser startParsingWithContentsOfURL:url];
+    }
+    
+    return true;
 }
 
 - (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller{

@@ -71,9 +71,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1b4-j8-4bo">
-                                <rect key="frame" x="255" y="285" width="90" height="30"/>
+                                <rect key="frame" x="175" y="285" width="250" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="wvX-Sx-9ge"/>
+                                    <constraint firstAttribute="width" constant="250" id="wvX-Sx-9ge"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
